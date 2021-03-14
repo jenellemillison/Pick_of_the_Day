@@ -1,0 +1,82 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#watchButton {
+	-fx-background-image: url('movieIcon.png'); 
+	-fx-background-size: 100% 100%;
+	-fx-background-radius: 99%;
+	-fx-border-color: transparent;
+	-fx-background-color: white;
+}
+
+#readButton {
+	-fx-background-image: url('bookIcon.png');
+	-fx-background-size: 100% 100%;
+	-fx-background-radius: 90%;
+	-fx-border-color: transparent;
+	-fx-background-color: white;
+}
+
+#readNowButton {
+	-fx-background-image: url('bookIconWhite.png');
+	-fx-background-size: 100% 100%;
+	-fx-background-radius: 90%;
+	-fx-background-color: rgba(97, 180, 180, 0.8);
+}
+
+#watchNowButton {
+	-fx-background-image: url('movieIconWhite.png');
+	-fx-background-size: 100% 100%;
+	-fx-background-radius: 90%;
+	-fx-background-color: rgba(97, 180, 180, 0.8);
+}
+
+#homeScreenBckg, #movieSelectorBckg, #bookSelectorBckg, #displayChoiceBckg {
+	-fx-background-image: url('bckg.png');
+	-fx-background-size: 100% 100%;
+}
+
+#randomReadButton, #randomWatchButton {
+	-fx-background-image: url('randomIconWhite.png');
+	-fx-background-radius: 90%;
+	-fx-background-size: 100% 100%;
+	-fx-background-color: rgba(166,114,232,0.8);
+}
+
+#listShowsButton, #chooseShowsButton, #listAuthorsButton, #chooseAuthorsButton {
+	-fx-background-color: rgba(70, 148, 181, 0.8);
+}
+
+#addShowToListButton, #addBookToListButton {
+	-fx-background-image: url('addIconWhite.png');
+	-fx-background-radius: 90%;
+	-fx-background-size: 100% 100%;
+	-fx-background-color: rgba(70, 148, 181, 0.8);
+}
+
+#inProgressButton {
+	-fx-background-image: url('greenDots.png');
+	-fx-background-radius: 90%;
+	-fx-background-size: 100% 100%;
+	-fx-background-color: white;
+}
+
+#inProgressButton {
+	-fx-background-image: url('greenDots.png');
+	-fx-background-radius: 90%;
+	-fx-background-size: 100% 100%;
+	-fx-background-color: white;
+}
+
+#doneButton {
+	-fx-background-image: url('blueCheck.png');
+	-fx-background-radius: 90%;
+	-fx-background-size: 100% 100%;
+	-fx-background-color: white;
+}
+
+#watchReadButton {
+	-fx-background-image: url('purpleLogo.png');
+	-fx-background-radius: 90%;
+	-fx-background-size: 100% 100%;
+	-fx-background-color: white;
+}
+

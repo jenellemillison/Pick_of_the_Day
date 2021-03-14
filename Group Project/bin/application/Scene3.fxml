@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane fx:id="bookSelectorBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuButton fx:id="chooseAuthorsButton" layoutX="43.0" layoutY="115.0" mnemonicParsing="false" text="Choose for author or title" textFill="WHITE">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Button fx:id="randomReadButton" layoutX="414.0" layoutY="260.0" mnemonicParsing="false" prefHeight="104.0" prefWidth="120.0" />
+      <MenuButton fx:id="listAuthorsButton" layoutX="47.0" layoutY="261.0" mnemonicParsing="false" text="List of authors or titles" textFill="WHITE">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Button fx:id="readNowButton" layoutX="250.0" layoutY="261.0" mnemonicParsing="false" prefHeight="104.0" prefWidth="120.0" />
+      <TextField layoutX="313.0" layoutY="115.0" prefHeight="25.0" prefWidth="168.0" promptText="Book title" />
+      <Button fx:id="addBookToListButton" layoutX="362.0" layoutY="200.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="72.0" />
+      <TextField layoutX="313.0" layoutY="156.0" prefHeight="25.0" prefWidth="167.0" promptText="Author" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="84.0" layoutX="-9.0" opacity="0.25" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+      <Label alignment="CENTER" layoutX="190.0" layoutY="24.0" opacity="0.9" prefHeight="45.0" prefWidth="234.0" text="BOOK SELECTOR" textFill="#4694b5">
+         <font>
+            <Font name="HP Simplified" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="285.0" layoutY="351.0" text="Read!" textFill="WHITE">
+         <font>
+            <Font name="HP Simplified" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="390.0" layoutY="351.0" text="Choose Random" textFill="WHITE">
+         <font>
+            <Font name="HP Simplified" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="345.0" layoutY="247.0" text="Add to List" textFill="WHITE">
+         <font>
+            <Font name="HP Simplified" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
