@@ -18,9 +18,9 @@ public class RandomGen {
 	public int arrayListSize; //int to hold the arraysize
 	
 	/*
-	 * GenerateRandom(int)
+	 * GenerateRandom() is a method that generates a random number and returns it
 	 * 		return: int
-	 * Generates a random number and returns it
+	 * @param int
 	 *
 	 */
 
