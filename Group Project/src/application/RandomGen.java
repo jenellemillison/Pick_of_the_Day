@@ -1,0 +1,37 @@
+/*
+ * Group 11: Couch Potatoes
+ * Class: CS3443-003
+ * Assignment: Group project, Title: Pick of the Day
+ * RandomGen.java
+ * 
+ * RandomGen generates a random number based on arraylist size
+ */
+
+package application;
+
+import java.util.Random;
+
+
+public class RandomGen {
+
+	public int rando; //int to hold a random num
+	public int arrayListSize; //int to hold the arraysize
+	
+	/*
+	 * GenerateRandom(int)
+	 * 		return: int
+	 * Generates a random number and returns it
+	 *
+	 */
+
+	public Integer GenerateRandom(int arrayListSize) {
+		//gets the size of the arraylist
+		this.arrayListSize = arrayListSize; //finds the upperbound depending on arraylist size
+		
+		Random rand = new Random(); //instance of random class
+		rando = rand.nextInt(this.arrayListSize); //finds a random number between the range of 0 to bounds - 1
+		
+		
+		return rando; //returns the random number generated
+	}
+}
