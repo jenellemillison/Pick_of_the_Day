@@ -45,12 +45,13 @@ public class MainController {
      */
 	@FXML
 	void watch(ActionEvent event) throws IOException {
-		homeScreenBckg = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
+		homeScreenBckg = FXMLLoader.load(getClass().getResource("ShowScene.fxml"));
 		Scene scene = new Scene(homeScreenBckg,600,400);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
     	Stage window = (Stage) ((Button)event.getSource()).getScene().getWindow();
     	window.setScene(scene);
     	window.show();
+
 	}
 	
 	/*
@@ -61,7 +62,7 @@ public class MainController {
      */
 	@FXML
 	void read(ActionEvent event) throws IOException {
-		homeScreenBckg = FXMLLoader.load(getClass().getResource("Scene3.fxml"));
+		homeScreenBckg = FXMLLoader.load(getClass().getResource("BookScene.fxml"));
 		Scene scene = new Scene(homeScreenBckg,600,400);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
     	Stage window = (Stage) ((Button)event.getSource()).getScene().getWindow();

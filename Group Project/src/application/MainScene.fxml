@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane fx:id="homeScreenBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="homeScreenBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Button fx:id="readButton" layoutX="306.0" layoutY="277.0" mnemonicParsing="false" opacity="0.8" prefHeight="70.0" prefWidth="65.0" />
-      <Button fx:id="watchButton" layoutX="307.0" layoutY="150.0" mnemonicParsing="false" opacity="0.8" prefHeight="70.0" prefWidth="65.0" stylesheets="@application.css" />
+      <Button fx:id="readButton" layoutX="306.0" layoutY="277.0" mnemonicParsing="false" onAction="#read" opacity="0.8" prefHeight="70.0" prefWidth="65.0" />
+      <Button fx:id="watchButton" layoutX="307.0" layoutY="150.0" mnemonicParsing="false" onAction="#watch" opacity="0.8" prefHeight="70.0" prefWidth="65.0" stylesheets="@application.css" />
       <Text fill="WHITE" layoutX="372.0" layoutY="177.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" text="What to Watch" textAlignment="CENTER" wrappingWidth="187.5">
          <font>
             <Font name="HP Simplified" size="30.0" />
