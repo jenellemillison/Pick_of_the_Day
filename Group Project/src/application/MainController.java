@@ -10,8 +10,6 @@
 package application;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,10 +20,7 @@ import javafx.stage.Stage;
 
 public class MainController {
 	
-	//arraylists to hold lists read in from save files. Move to another class??
-	ArrayList<Book> books = new ArrayList<Book>();
-	ArrayList<Show> shows = new ArrayList<Show>();
-	ArrayList<String> movies = new ArrayList<String>();
+
 	
 	@FXML
 	private Button readButton; //button to change scene to the book select scene
