@@ -26,11 +26,6 @@ import java.util.ArrayList;
  * 		FileWrite(ArrayList<String>, ArrayList<String>)
  */
 public class FileHandlerBook {
-	//book will have Title and author
-	//ArrayList<String> bookTitle = new ArrayList<String>();
-	//ArrayList<String> author = new ArrayList<String>();
-	//ArrayList<Book> books = new ArrayList<Book>();
-
     /*
      * FileRead() method reads the books.txt file into two separate arraylists
      * for the book title and the author.
@@ -58,10 +53,9 @@ public class FileHandlerBook {
 		while(line != null) {
 			String temp[] = line.split(","); //splits the lines at the , mark
 			Book bookToAdd = null;
-			if((bookToAdd = BookController.setBook(temp[0].toLowerCase(), temp[1].toLowerCase())) != null && !BookController.allBooks.contains(bookToAdd))
+			//adds book info so long as the list doesn't already contain it
+			if((bookToAdd = BookController.setBook(temp[0].toLowerCase())) != null && !BookController.allBooks.contains(bookToAdd))
 				BookController.allBooks.add(bookToAdd);
-			//bookTitle.add(temp[0].toLowerCase()); //places the string before the comma into bookTitle arraylist
-			//author.add(temp[1].toLowerCase()); //places the string after the comma into author arraylist
 			//read next line
 			line = in.readLine();
 		}
