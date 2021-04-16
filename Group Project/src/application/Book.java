@@ -13,9 +13,11 @@ public class Book {
 
 	String title; //title of the book
 	String author; //author of the book
+	String chapter; //chapter of the book
 	
-	public Book(String title, String author) {
+	public Book(String title, String author, String chapter) {
 		this.title = title; //sets the local title to the title passed in
 		this.author = author; //sets the local author to the author passed in
+		this.chapter = chapter; //sets the local chapter to the chapter passed in
 	}
 }
