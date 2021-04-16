@@ -27,8 +27,9 @@ import java.util.ArrayList;
  */
 public class FileHandlerBook {
 	//book will have Title and author
-	ArrayList<String> bookTitle = new ArrayList<String>();
-	ArrayList<String> author = new ArrayList<String>();
+	//ArrayList<String> bookTitle = new ArrayList<String>();
+	//ArrayList<String> author = new ArrayList<String>();
+	//ArrayList<Book> books = new ArrayList<Book>();
 
     /*
      * FileRead() method reads the books.txt file into two separate arraylists
@@ -56,8 +57,11 @@ public class FileHandlerBook {
 		String line = in.readLine();
 		while(line != null) {
 			String temp[] = line.split(","); //splits the lines at the , mark
-			bookTitle.add(temp[0].toLowerCase()); //places the string before the comma into bookTitle arraylist
-			author.add(temp[1].toLowerCase()); //places the string after the comma into author arraylist
+			Book bookToAdd = null;
+			if((bookToAdd = BookController.setBook(temp[0].toLowerCase(), temp[1].toLowerCase())) != null && !BookController.allBooks.contains(bookToAdd))
+				BookController.allBooks.add(bookToAdd);
+			//bookTitle.add(temp[0].toLowerCase()); //places the string before the comma into bookTitle arraylist
+			//author.add(temp[1].toLowerCase()); //places the string after the comma into author arraylist
 			//read next line
 			line = in.readLine();
 		}
@@ -70,14 +74,14 @@ public class FileHandlerBook {
      * throws IOException and FileNotFoundException
      */
 	
-	public void FileWrite(ArrayList<String> titleWrite, ArrayList<String> authorWrite) throws IOException {
+	public void FileWrite(ArrayList<Book> bookWrite) throws IOException {
 		//overwrites the file, creates one if it doesn't exist.
     	File outFile = new File("books.txt");
     	FileWriter fWrite = new FileWriter(outFile, false);
     	
     	//writes to the file in the format of bookTitle,author
-    	for(int i = 0; i < titleWrite.size(); i++){
-    	 	fWrite.write(titleWrite.get(i) + "," + authorWrite.get(i) + "\n");
+    	for(int i = 0; i < bookWrite.size(); i++){
+    	 	fWrite.write(bookWrite.get(i).title + "," + bookWrite.get(i).author + "\n");
     	}
     	fWrite.close();
 	}
