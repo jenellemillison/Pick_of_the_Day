@@ -1,5 +1,6 @@
-title,author
-some book,someone
-my life,me
-great gatsby,f. scott fitzgerald
-testTitle,testAuthor
+title,author,0
+some book,someone,1
+my life,me,2
+great gatsby,f. scott fitzgerald,3
+testtitle,testauthor,5
+test,test person,0

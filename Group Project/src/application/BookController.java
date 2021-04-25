@@ -99,7 +99,7 @@ public class BookController implements Initializable{
     	else {
     		String bookTitleToAdd = bookTitleTxt.getText();
     		String bookAuthorToAdd = bookAuthorTxt.getText();
-    		setBook(bookTitleToAdd, bookAuthorToAdd);
+    		setBook(bookTitleToAdd, bookAuthorToAdd, 0);
     		//(fb.author).add(bookAuthorToAdd);
     		//(fb.bookTitle).add(bookTitleToAdd);
     		//fb.FileWrite(fb.bookTitle, fb.author);
@@ -117,8 +117,8 @@ public class BookController implements Initializable{
     * book list if it is not already in the list
     * Params: String title, String author Returns: Book b
     */
-    public static Book setBook(String title, String author) {
-    	Book b = new Book(title, author);
+    public static Book setBook(String title, String author, int chapter) {
+    	Book b = new Book(title, author, chapter);
     	if(!allBooks.contains(b))
     		allBooks.add(b);//add book to arraylist of books
     	return b;
