@@ -59,7 +59,7 @@ public class ShowController implements Initializable{
     public void randitem() {
     	RandomGen rand = new RandomGen();
     	int rindex = rand.GenerateRandom(movies.size()) - 1;
-    	//ProgressController.chosenshow = showTitle.get(rindex); 
+    	//ProgressController.chosenshow = showTitle.get(rindex); uncomment when progresscontroll class is ready
     }
     
     @FXML
@@ -150,7 +150,7 @@ public class ShowController implements Initializable{
     }
 	
 	public void chooseShow(ActionEvent event) {
-    	//ProgressController.chosenshow = getItem.getText(); 
+    	//ProgressController.chosenshow = getItem.getText(); uncomment when progresscontroll class is ready
     }
 	
 }
