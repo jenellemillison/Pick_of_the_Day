@@ -64,7 +64,7 @@ public class ShowController implements Initializable{
     
     @FXML
 	public void progressrand(ActionEvent event) throws IOException{
-    	randitem();
+    	
     	movieSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
     	Scene scene = new Scene(movieSelectorBckg);
         Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();
