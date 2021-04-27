@@ -12,9 +12,9 @@ package application;
 public class Show {
 	
 	String title; //title of the show
-	String episode; //episode that the user is on
+	int episode; //episode that the user is on
 	
-	public Show(String title, String episode) {
+	public Show(String title, int episode) {
 		this.title = title; //sets the local title to that passed in
 		this.episode = episode; //sets the episode to that passed in
 	}

@@ -54,7 +54,7 @@ public class FileHandlerBook {
 			String temp[] = line.split(","); //splits the lines at the , mark
 			Book bookToAdd = null;
 			//adds book info so long as the list doesn't already contain it
-			if((bookToAdd = BookController.setBook(temp[0].toLowerCase(), temp[1].toLowerCase())) != null && !BookController.allBooks.contains(bookToAdd))
+			if((bookToAdd = BookController.setBook(temp[0].toLowerCase(), temp[1].toLowerCase(), Integer.parseInt(temp[2]))) != null && !BookController.allBooks.contains(bookToAdd))
 				BookController.allBooks.add(bookToAdd);
 			//read next line
 			line = in.readLine();

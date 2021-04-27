@@ -29,9 +29,6 @@ import java.util.ArrayList;
 
 public class FileHandlerShow {
 	//shows will have Title and Episode, movies just has titles
-	ArrayList<String> showTitle = new ArrayList<String>();
-	ArrayList<String> episode = new ArrayList<String>();
-	ArrayList<String> movies = new ArrayList<String>();
 	
 	
 	/*
@@ -58,8 +55,10 @@ public class FileHandlerShow {
 		//read in each line of movies.txt
 		String line = in.readLine();
 		while(line != null) {
-			//reads in each line and trims any leading or preceding spaces, if any
-			showTitle.add(line.trim().toLowerCase()); 
+			String temp[] = line.split("");
+			Movie movieToAdd = null;
+			if((movieToAdd = ShowController.setmovie(temp[0].toLowerCase())) != null && !ShowController.movies.contains(movieToAdd))
+				ShowController.movies.add(movieToAdd);
 			//read next line
 			line = in.readLine();
 		}
@@ -71,14 +70,14 @@ public class FileHandlerShow {
      * @param ArrayList<String> 
      * throws IOException and FileNotFoundException
      */
-	public void FileWriteMovie(ArrayList<String> titleWrite) throws IOException, FileNotFoundException {
+	public void FileWriteMovie(ArrayList<Movie> titleWrite) throws IOException, FileNotFoundException {
 		//overwrites the file, creates one if it doesn't exist.
     	File outFile = new File("movies.txt");
     	FileWriter fWrite = new FileWriter(outFile, false);
     	
     	//writes to the file in the format of showTitle,episode
     	for(int i = 0; i < titleWrite.size(); i++){
-    	 	fWrite.write(titleWrite.get(i) + "\n");
+    	 	fWrite.write(titleWrite.get(i).title + "\n");
     	}
     	fWrite.close();
 	}
@@ -111,9 +110,10 @@ public class FileHandlerShow {
 		String line = in.readLine();
 		while(line != null) {
 			String temp[] = line.split(","); //splits the lines at the , mark
-			showTitle.add(temp[0].toLowerCase()); //places the string before the comma into showTitle arraylist
-			episode.add(temp[1]); //places the string after the comma into episode arraylist
-			//read next line
+			Show showToAdd = null;
+			//adds book info so long as the list doesn't already contain it
+			if((showToAdd = ShowController.setshow(temp[0].toLowerCase(), Integer.parseInt(temp[1])))!= null && !ShowController.showTitle.contains(showToAdd))
+				ShowController.showTitle.add(showToAdd);
 			line = in.readLine();
 		}
 		in.close();
@@ -125,14 +125,14 @@ public class FileHandlerShow {
      * throws IOException and FileNotFoundException
      */
 	
-	public void FileWriteShow(ArrayList<String> titleWrite, ArrayList<String> epWrite) throws IOException, FileNotFoundException {
+	public void FileWriteShow(ArrayList<Show> titleWrite) throws IOException, FileNotFoundException {
 		//overwrites the file, creates one if it doesn't exist.
     	File outFile = new File("shows.txt");
     	FileWriter fWrite = new FileWriter(outFile, false);
     	
     	//writes to the file in the format of showTitle,episode
     	for(int i = 0; i < titleWrite.size(); i++){
-    	 	fWrite.write(titleWrite.get(i) + "," + epWrite.get(i) + "\n");
+    	 	fWrite.write(titleWrite.get(i).title + "," + titleWrite.get(i).episode + "\n");
     	}
     	fWrite.close();
 	}
