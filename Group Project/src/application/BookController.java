@@ -133,7 +133,7 @@ public class BookController implements Initializable{
     public void chooseRandom() {
     	RandomGen r = new RandomGen();
     	int randIndex = r.GenerateRandom(allBooks.size()) - 1;
-    	ProgressController.chosenBook = allBooks.get(randIndex); //uncomment when progresscontroll class is ready
+    	//ProgressController.chosenBook = allBooks.get(randIndex); //uncomment when progresscontroll class is ready
     }
     
     
