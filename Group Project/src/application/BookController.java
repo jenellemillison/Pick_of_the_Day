@@ -58,7 +58,7 @@ public class BookController implements Initializable{
     @FXML
     private TextField bookAuthorTxt;
     
-    FileHandlerBook fb = new FileHandlerBook();
+    static FileHandlerBook fb = new FileHandlerBook();
     static ArrayList<Book> allBooks = new ArrayList<Book>();
 
 	 /*
@@ -82,8 +82,7 @@ public class BookController implements Initializable{
 		//System.out.println(FileHandlerBook.bookTitle);
 		updateBookMenu();
 	}
-    
-	
+    	
 	/*
 	  * addToList adds the validated title and author info entered by the user to books.txt and the
 	  * ArrayList of books.
@@ -134,7 +133,7 @@ public class BookController implements Initializable{
     public void chooseRandom() {
     	RandomGen r = new RandomGen();
     	int randIndex = r.GenerateRandom(allBooks.size()) - 1;
-    	//ProgressController.chosenBook = allBooks.get(randIndex); uncomment when progresscontroll class is ready
+    	ProgressController.chosenBook = allBooks.get(randIndex); //uncomment when progresscontroll class is ready
     }
     
     

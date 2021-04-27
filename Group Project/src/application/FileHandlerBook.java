@@ -75,7 +75,7 @@ public class FileHandlerBook {
     	
     	//writes to the file in the format of bookTitle,author
     	for(int i = 0; i < bookWrite.size(); i++){
-    	 	fWrite.write(bookWrite.get(i).title + "," + bookWrite.get(i).author + "\n");
+    	 	fWrite.write(bookWrite.get(i).title + "," + bookWrite.get(i).author + "," + bookWrite.get(i).chapter + "\n");
     	}
     	fWrite.close();
 	}
