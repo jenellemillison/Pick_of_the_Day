@@ -5,4 +5,4 @@ This application will keep track of progress for various books and movies/shows 
 
 TODO:  
 Known bugs: If by the deadline there are still known issues, list these with any helpful info.  
-Versions or other requirements: Java 8, SceneBuilder 
+Versions or other requirements: Java 8 (JRE and SDK versions), SceneBuilder 
