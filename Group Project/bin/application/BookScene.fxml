@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="mainPane" fx:id="bookSelectorBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookController">
+<AnchorPane fx:id="bookSelectorBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookController">
    <children>
       <MenuButton fx:id="chooseAuthorsButton" layoutX="39.0" layoutY="103.0" mnemonicParsing="false" text="Choose for author or title" textFill="WHITE">
         <items>
@@ -16,7 +16,7 @@
         </items>
       </MenuButton>
       <Button fx:id="randomReadButton" layoutX="418.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchProgressSceneRandom" prefHeight="104.0" prefWidth="120.0" />
-      <MenuButton fx:id="listAuthorsButton" layoutX="47.0" layoutY="261.0" mnemonicParsing="false" onAction="#chooseBook" text="List of authors or titles" textFill="WHITE">
+      <MenuButton fx:id="listAuthorsButton" layoutX="47.0" layoutY="261.0" mnemonicParsing="false" text="List of authors or titles" textFill="WHITE">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
