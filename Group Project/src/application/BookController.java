@@ -60,6 +60,8 @@ public class BookController implements Initializable{
     
     static FileHandlerBook fb = new FileHandlerBook();
     static ArrayList<Book> allBooks = new ArrayList<Book>();
+    ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
+    Book chosen = null;
 
 	 /*
 	  * initialize uses the Initialization interface in order to initialize variables and
@@ -123,6 +125,17 @@ public class BookController implements Initializable{
     	return b;
     }
     
+    public static Book getBook(String title, String author) {
+    	int index = 0;
+    	while(index < allBooks.size()) {
+    		if(allBooks.get(index).title.contains(title) && allBooks.get(index).author.contains(author)) {
+    			return allBooks.get(index);
+    		}
+    		index++;
+    	}
+    	return null;
+    }
+    
     /*
      * chooseRandom is invoked when the user clicks on the random button (this is called from the
      * switchSceneProgressRandom class because that also is a method invoked by the same button).
@@ -134,27 +147,37 @@ public class BookController implements Initializable{
     	RandomGen r = new RandomGen();
     	int randIndex = r.GenerateRandom(allBooks.size()) - 1;
     	ProgressController.chosenBook = allBooks.get(randIndex); //uncomment when progresscontroll class is ready
-    }
-    
-    
-    /*
-     * chooseBook is invoked when the user clicks on a book title in the menu. This will save the book
-     * to a variable in the ProgressController class so that class can display the information about
-     * that book.
-     * Params: ActionEvent event (the menu click) Returns: void
-     */
-    public void chooseBook(ActionEvent event) {
-    	//ProgressController.chosenBook = getItem.getText(); uncomment when progresscontroll class is ready
+    	
+    	//ProgressController.isBook = true;
+		//ProgressController.isMovie = false;
+		//ProgressController.isShow = false;
     }
     
     /*
-     * updateBookMenu updates the list of books in the menu with the most recent options from the list of all books
+     * updateBookMenu updates the list of books in the menu with the most recent options from the list of all books.
+     * It also sets an event listener for each menu item to get the title and author and match it with a book
+     * in order to pass that variable to the ProgressController class for display via the chosenBook variable
      * Params: none Returns: void
      */
     public void updateBookMenu() {
     	listAuthorsButton.getItems().clear();
     	for(Book book : allBooks) {
-    		 listAuthorsButton.getItems().add(new MenuItem(book.author + ", " + book.title));
+    		MenuItem item = new MenuItem(book.author + ", " + book.title);
+    		item.setOnAction(e -> {
+    			chosen = null;
+    			String bookInfo = item.getText();
+    			String[] splitBookInfo = bookInfo.split(", ");
+    			chosen = getBook(splitBookInfo[1], splitBookInfo[0]);
+    			if(chosen != null) {
+    				ProgressController.chosenBook = getBook(splitBookInfo[1], splitBookInfo[0]);
+    				//ProgressController.isBook = true;
+    				//ProgressController.isMovie = false;
+    				//ProgressController.isShow = false;
+    			}			
+    		});
+    		listAuthorsButton.getItems().add(item);
+    		menuItems.add(item);
+    		//ORIGINAL - listAuthorsButton.getItems().add(new MenuItem(book.author + ", " + book.title));
     	}
     	listAuthorsButton.show();    	
     }
@@ -177,13 +200,14 @@ public class BookController implements Initializable{
 	 */
 	@FXML
 	public void switchProgressSceneRandom(ActionEvent event) throws IOException{
-		chooseRandom();
-		bookSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
-    	Scene scene = new Scene(bookSelectorBckg);// pane you are GOING TO show
-    	scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-        Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();// pane you are ON
-        window.setScene(scene);
-        window.show();
+		if(chosen != null) {
+			bookSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
+			Scene scene = new Scene(bookSelectorBckg);// pane you are GOING TO show
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();// pane you are ON
+			window.setScene(scene);
+			window.show();
+		}
     }
 	
 	/*
