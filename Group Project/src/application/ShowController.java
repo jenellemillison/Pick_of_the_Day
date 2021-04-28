@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javax.swing.ButtonGroup;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +17,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -41,12 +45,17 @@ public class ShowController implements Initializable{
     private AnchorPane movieSelectorBckg;
 
     @FXML
-    private MenuButton chooseShowsButton;
+    private RadioButton Showbutton;
 
+    @FXML
+    private RadioButton Moviebutton;
+    
+    
     FileHandlerShow sh = new FileHandlerShow();
     static ArrayList<Show> showTitle = new ArrayList<Show>();
 	static ArrayList<Movie> movies = new ArrayList<Movie>();
-    
+	
+	
     @FXML
 	public void progress(ActionEvent event) throws IOException{
     	movieSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
@@ -74,9 +83,7 @@ public class ShowController implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		chooseShowsButton.getItems().clear();
-		chooseShowsButton.getItems().add(new MenuItem("Movies"));
-		chooseShowsButton.getItems().add(new MenuItem("Shows"));
+		
 		addshowtext.setText("");
 		try {
 			sh.FileReadMovie();
@@ -103,6 +110,9 @@ public class ShowController implements Initializable{
     }
     
 	public void addlist(ActionEvent event) throws IOException {
+		ToggleGroup radBtnsToggle = new ToggleGroup();
+		Showbutton.setToggleGroup(radBtnsToggle);
+		Moviebutton.setToggleGroup(radBtnsToggle);
     	Alert a = new Alert(AlertType.NONE);
     	if(addshowtext.getText().contentEquals("")) {
     		a.setAlertType(AlertType.ERROR);
@@ -110,7 +120,7 @@ public class ShowController implements Initializable{
     		a.show();
     	}
     	else {
-    		if(chooseShowsButton.equals("Shows")) {
+    		if(Showbutton.isSelected()) {
     		String showadd = addshowtext.getText();
     		setshow(showadd,0);
     		sh.FileWriteShow(showTitle);
@@ -120,7 +130,7 @@ public class ShowController implements Initializable{
     		a.show();
     		addshowtext.clear();
     		}
-    		else if(chooseShowsButton.equals("Movies")) {
+    		else if(Moviebutton.isSelected()) {
     			String movieadd = addshowtext.getText();
         		setmovie(movieadd);
         		sh.FileWriteMovie(movies);
@@ -150,6 +160,7 @@ public class ShowController implements Initializable{
     }
 	
 	public void chooseShow(ActionEvent event) {
+		
     	//ProgressController.chosenshow = getItem.getText(); uncomment when progresscontroll class is ready
     }
 	
