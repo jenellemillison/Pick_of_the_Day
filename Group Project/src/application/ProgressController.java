@@ -91,7 +91,7 @@ public class ProgressController implements Initializable{
 	     */    
 		  @FXML
 		  void deleteContent(ActionEvent event) {
-
+			  
 		  }
 		 /*
 		  * updateProgress displays the title and chapter on the text area with the most recent values.
