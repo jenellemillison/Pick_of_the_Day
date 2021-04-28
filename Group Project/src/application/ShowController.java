@@ -83,7 +83,9 @@ public class ShowController implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		ToggleGroup radBtnsToggle = new ToggleGroup();
+		Showbutton.setToggleGroup(radBtnsToggle);
+		Moviebutton.setToggleGroup(radBtnsToggle);
 		addshowtext.setText("");
 		try {
 			sh.FileReadMovie();
@@ -110,9 +112,7 @@ public class ShowController implements Initializable{
     }
     
 	public void addlist(ActionEvent event) throws IOException {
-		ToggleGroup radBtnsToggle = new ToggleGroup();
-		Showbutton.setToggleGroup(radBtnsToggle);
-		Moviebutton.setToggleGroup(radBtnsToggle);
+		
     	Alert a = new Alert(AlertType.NONE);
     	if(addshowtext.getText().contentEquals("")) {
     		a.setAlertType(AlertType.ERROR);
