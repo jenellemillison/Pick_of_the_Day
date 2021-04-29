@@ -86,6 +86,7 @@ public class ShowController implements Initializable{
 		ToggleGroup radBtnsToggle = new ToggleGroup();
 		Showbutton.setToggleGroup(radBtnsToggle);
 		Moviebutton.setToggleGroup(radBtnsToggle);
+		listShowsButton.getItems().clear();
 		addshowtext.setText("");
 		try {
 			sh.FileReadMovie();
@@ -93,8 +94,12 @@ public class ShowController implements Initializable{
 		} catch (IOException e) {
 			System.out.println("Error while reading file of show and movie information.");
 		}
+		if(Showbutton.isSelected()) {
 		updateshows();
+		}
+		if(Moviebutton.isSelected()) {
 		updatemovies();
+		}
 	}
 	
 	public static Movie setmovie(String title) {
@@ -126,7 +131,7 @@ public class ShowController implements Initializable{
     		sh.FileWriteShow(showTitle);
     		updateshows();
     		a.setAlertType(AlertType.CONFIRMATION);
-    		a.setContentText("Added the show " + addshowtext);
+    		a.setContentText("Added the show " + showadd);
     		a.show();
     		addshowtext.clear();
     		}
@@ -136,12 +141,24 @@ public class ShowController implements Initializable{
         		sh.FileWriteMovie(movies);
         		updatemovies();
         		a.setAlertType(AlertType.CONFIRMATION);
-        		a.setContentText("Added the movie " + addshowtext);
+        		a.setContentText("Added the movie " + movieadd);
         		a.show();
         		addshowtext.clear();
     		}
     	}
     }
+	
+	public void buttonshow(ActionEvent event) {
+		if(Showbutton.isSelected()) {
+			updateshows();
+			}
+	}
+	
+	public void buttonmovie(ActionEvent event) {
+		if(Moviebutton.isSelected()) {
+			updatemovies();
+			}
+	}
 	
 	public void updateshows() {
 		listShowsButton.getItems().clear();
@@ -160,8 +177,11 @@ public class ShowController implements Initializable{
     }
 	
 	public void chooseShow(ActionEvent event) {
-		
-    	//ProgressController.chosenshow = getItem.getText(); uncomment when progresscontroll class is ready
+		if(Showbutton.isSelected()) {
+			//ProgressController.chosenshow = getItem.getText();
+		}
+		else {
+    	//ProgressController.chosenmovie = getItem.getText(); uncomment when progresscontroll class is ready
+	}
     }
 	
-}
