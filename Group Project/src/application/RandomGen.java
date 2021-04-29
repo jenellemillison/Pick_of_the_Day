@@ -16,6 +16,7 @@ public class RandomGen {
 
 	public int rando; //int to hold a random num
 	public int arrayListSize; //int to hold the arraysize
+	Random rand = new Random(System.currentTimeMillis()); //instance of random class
 	
 	/*
 	 * GenerateRandom() is a method that generates a random number and returns it
@@ -27,8 +28,6 @@ public class RandomGen {
 	public Integer GenerateRandom(int arrayListSize) {
 		//gets the size of the arraylist
 		this.arrayListSize = arrayListSize; //finds the upperbound depending on arraylist size
-		
-		Random rand = new Random(); //instance of random class
 		rando = rand.nextInt(this.arrayListSize); //finds a random number between the range of 0 to bounds - 1
 		
 		
