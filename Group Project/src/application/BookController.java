@@ -61,10 +61,10 @@ public class BookController implements Initializable{
     @FXML
     private TextField bookAuthorTxt;
     
-    static FileHandlerBook fb = new FileHandlerBook();
-    static ArrayList<Book> allBooks = new ArrayList<Book>();
-    ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
-    Book chosen = null;
+    public static FileHandlerBook fb = new FileHandlerBook();
+    public static ArrayList<Book> allBooks = new ArrayList<Book>();
+    private ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
+    private Book chosen = null;
 
 	 /*
 	  * initialize uses the Initialization interface in order to initialize variables and
@@ -73,18 +73,19 @@ public class BookController implements Initializable{
 	  */
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//System.out.println("Titles:");
-		//System.out.println(FileHandlerBook.bookTitle);
-		chooseAuthorsButton.getItems().clear(); //WHAT IS THIS BUTTON FOR?
+		//clear pre-existing data
+    	allBooks.clear();
+		chooseAuthorsButton.getItems().clear();
 		bookTitleTxt.setText("");
 		bookAuthorTxt.setText("");
+		
+		//read in file data on books
 		try {
 			fb.FileRead();
 		} catch (IOException e) {
 			System.out.println("Error with reading file of book information.");
 		}
-		//System.out.println("Titles:");
-		//System.out.println(FileHandlerBook.bookTitle);
+		
 		updateBookMenu();
 	}
     	
@@ -95,18 +96,17 @@ public class BookController implements Initializable{
 	  */
     public void addToList(ActionEvent event) throws IOException {
     	Alert a = new Alert(AlertType.NONE);
+    	//if nothing entered, error
     	if(bookTitleTxt.getText().contentEquals("") || bookAuthorTxt.getText().contentEquals("")) {
     		a.setAlertType(AlertType.ERROR);
     		a.setContentText("To add a book, you must fill out the book title and book author fields");
     		a.show();
     	}
+    	//otherwise, add the book with the user information
     	else {
     		String bookTitleToAdd = bookTitleTxt.getText();
     		String bookAuthorToAdd = bookAuthorTxt.getText();
     		setBook(bookTitleToAdd, bookAuthorToAdd,0);
-    		//(fb.author).add(bookAuthorToAdd);
-    		//(fb.bookTitle).add(bookTitleToAdd);
-    		//fb.FileWrite(fb.bookTitle, fb.author);
     		fb.FileWrite(allBooks);
     		updateBookMenu();
     		a.setAlertType(AlertType.CONFIRMATION);
@@ -115,6 +115,7 @@ public class BookController implements Initializable{
     		clearData();
     	}
     }
+    
    /*
     * setBook takes a String for the title and String for the author as arguments and uses
     * those to initialize and return a Book object. The book object is added to the current
@@ -128,6 +129,11 @@ public class BookController implements Initializable{
     	return b;
     }
     
+    /*
+     * getBook takes a String for the title and String for the author as arguments and uses
+     * those to return a Book object in the list that matches. 
+     * Params: String title, String author Returns: Book b
+     */
     public static Book getBook(String title, String author) {
     	int index = 0;
     	while(index < allBooks.size()) {
@@ -150,7 +156,6 @@ public class BookController implements Initializable{
     	RandomGen r = new RandomGen();
     	int randIndex = r.GenerateRandom(allBooks.size()) - 1;
     	ProgressController.chosenBook = allBooks.get(randIndex); //uncomment when progresscontroll class is ready
-    	
     	//ProgressController.isBook = true;
 		//ProgressController.isMovie = false;
 		//ProgressController.isShow = false;
@@ -180,7 +185,6 @@ public class BookController implements Initializable{
     		});
     		listAuthorsButton.getItems().add(item);
     		menuItems.add(item);
-    		//ORIGINAL - listAuthorsButton.getItems().add(new MenuItem(book.author + ", " + book.title));
     	}
     	listAuthorsButton.show();    	
     }
@@ -238,6 +242,7 @@ public class BookController implements Initializable{
 	void returnHome(ActionEvent event) throws IOException {
     	 mainBckg = FXMLLoader.load(getClass().getResource("/application/MainScene.fxml"));// pane you are GOING TO
          Scene scene = new Scene(mainBckg);// pane you are GOING TO show
+         scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
          Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();// pane you are ON
          window.setScene(scene);
          window.show();

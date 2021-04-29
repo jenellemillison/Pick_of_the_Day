@@ -47,5 +47,6 @@
             <Font name="HP Simplified" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="homeButton" layoutX="511.0" layoutY="10.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="65.0" prefWidth="80.0" />
    </children>
 </AnchorPane>
