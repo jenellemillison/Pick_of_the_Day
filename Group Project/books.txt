@@ -1,6 +1,6 @@
 title,author,0
 some book,someone,400
-my life,me,2
+my life,me,4
 great gatsby,f. scott fitzgerald,3
 testtitle,testauthor,5
 test,test person,0
