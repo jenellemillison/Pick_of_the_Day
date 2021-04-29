@@ -48,6 +48,9 @@ public class BookController implements Initializable{
 
     @FXML
     private AnchorPane bookSelectorBckg;
+    
+    @FXML
+    private AnchorPane mainBckg;
 
     @FXML
     private Button readNowButton;
@@ -200,14 +203,13 @@ public class BookController implements Initializable{
 	 */
 	@FXML
 	public void switchProgressSceneRandom(ActionEvent event) throws IOException{
-		if(chosen != null) {
+			chooseRandom();
 			bookSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
 			Scene scene = new Scene(bookSelectorBckg);// pane you are GOING TO show
 			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();// pane you are ON
 			window.setScene(scene);
 			window.show();
-		}
     }
 	
 	/*
@@ -218,11 +220,26 @@ public class BookController implements Initializable{
 	 */
 	@FXML
 	public void switchProgressScene(ActionEvent event) throws IOException{
-		bookSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
-    	Scene scene = new Scene(bookSelectorBckg);// pane you are GOING TO show
-    	scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-        Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();// pane you are ON
-        window.setScene(scene);
-        window.show();
+		if(chosen != null) {
+			bookSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressScene.fxml"));
+    		Scene scene = new Scene(bookSelectorBckg);// pane you are GOING TO show
+    		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+        	Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();// pane you are ON
+        	window.setScene(scene);
+        	window.show();
+		}
+    }
+	
+	/*
+     * returnHome launches the MainScene from the BookController class
+     * Params: ActionEvent event (javafx button click) Returns: void
+     */
+    @FXML
+	void returnHome(ActionEvent event) throws IOException {
+    	 mainBckg = FXMLLoader.load(getClass().getResource("/application/MainScene.fxml"));// pane you are GOING TO
+         Scene scene = new Scene(mainBckg);// pane you are GOING TO show
+         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();// pane you are ON
+         window.setScene(scene);
+         window.show();
     }
 }
