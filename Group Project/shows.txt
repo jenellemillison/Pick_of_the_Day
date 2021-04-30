@@ -1,4 +1,5 @@
-delete me,0
-rookie blue,0
-american ninja warrior,0
-the blacklist,0
+Saturday Night Live,34
+Rookie Blue,10
+American Ninja Warrior,0
+The Blacklist,55
+The Great British Baking Show,21

@@ -161,10 +161,10 @@ public class ProgressControllerShow implements Initializable{
 	@FXML
 	public void updateProgress() {
 		if(isShow) {
-			progressResult.setText(chosenShow.title + " "+ chosenShow.episode);
+			progressResult.setText("Watching Episode " + chosenShow.episode + " of " + chosenShow.title);
 		}
 		else if (isMovie) {
-			progressResult.setText(chosenMovie.title); 
+			progressResult.setText("Watching: " + chosenMovie.title); 
 		}
 	}
 }
