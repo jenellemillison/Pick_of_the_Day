@@ -55,7 +55,6 @@ public class FileHandlerShow {
 		//read in each line of movies.txt
 		String line = in.readLine();
 		while(line != null) {
-			//String temp[] = line.split("");
 			Movie movieToAdd = null;
 			if((movieToAdd = ShowController.setmovie(line)) != null && !ShowController.movies.contains(movieToAdd))
 				ShowController.movies.add(movieToAdd);
