@@ -96,7 +96,7 @@ public class ShowController implements Initializable{
 	 * depending on if the movie button, show button, or if nothing is selected.
 	 * Params: none Returns: void
 	 */
-    public void randitem() {
+    public boolean randitem() {
     	int rindex = 0;
     	RandomGen rand = new RandomGen();
     	if(Moviebutton.isSelected()) {
@@ -104,13 +104,21 @@ public class ShowController implements Initializable{
     		ProgressControllerShow.chosenMovie = movies.get(rindex);
     		ProgressControllerShow.isMovie = true;
     		ProgressControllerShow.isShow = false;
+    		return true;
     	}
     	else if (Showbutton.isSelected()){
         	rindex = rand.GenerateRandom(showTitle.size());
         	ProgressControllerShow.chosenShow = showTitle.get(rindex);
         	ProgressControllerShow.isMovie = false;
     		ProgressControllerShow.isShow = true;
+    		return true;
         }
+    	else {
+    		Alert a = new Alert(AlertType.ERROR);
+    		a.setContentText("Please select if you would like to watch a movie or show before choosing random.");
+    		a.show();
+    		return false;
+    	}
     }
     
     /*
@@ -121,13 +129,14 @@ public class ShowController implements Initializable{
 	 */
     @FXML
 	public void progressrand(ActionEvent event) throws IOException{
-    	randitem();
-    	movieSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressSceneShow.fxml"));
-    	Scene scene = new Scene(movieSelectorBckg);
-    	scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-        Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+    	if(randitem()) {
+    		movieSelectorBckg = FXMLLoader.load(getClass().getResource("/application/ProgressSceneShow.fxml"));
+    		Scene scene = new Scene(movieSelectorBckg);
+    		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+    		Stage window = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+    		window.setScene(scene);
+    		window.show();
+    	}
     }
     
     /*

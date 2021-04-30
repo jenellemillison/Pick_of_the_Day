@@ -125,7 +125,7 @@ public class ProgressController implements Initializable{
 	 */
 	@FXML
 	public void updateProgress() {
-		progressResult.setText(chosenBook.title + " "+ chosenBook.chapter);	   	    
+		progressResult.setText("Reading Chapter " + chosenBook.chapter + " of " + chosenBook.title);	   	    
 	}
 }
 
