@@ -34,6 +34,7 @@ import application.FileHandlerBook;
 
 public class BookController implements Initializable{
 	
+	//Buttons, Textfields, and Panes shown on the ShowScene that the user can interact with to make changes
 	@FXML
     private MenuButton chooseAuthorsButton;
 
@@ -61,8 +62,11 @@ public class BookController implements Initializable{
     @FXML
     private TextField bookAuthorTxt;
     
+    //static varaibles that can be accessed from the ProgressControllerShow class to update show and movie progress
     public static FileHandlerBook fb = new FileHandlerBook();
     public static ArrayList<Book> allBooks = new ArrayList<Book>();
+    
+    //variables for this class only, the menu and the chosen book.
     private ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
     private Book chosen = null;
 
@@ -82,10 +86,11 @@ public class BookController implements Initializable{
 		//read in file data on books
 		try {
 			fb.FileRead();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println("Error with reading file of book information.");
 		}
 		
+		//use read in data to update menus
 		updateBookMenu();
 	}
     	
@@ -106,13 +111,16 @@ public class BookController implements Initializable{
     	else {
     		String bookTitleToAdd = bookTitleTxt.getText();
     		String bookAuthorToAdd = bookAuthorTxt.getText();
-    		setBook(bookTitleToAdd, bookAuthorToAdd,0);
-    		fb.FileWrite(allBooks);
-    		updateBookMenu();
+    		setBook(bookTitleToAdd, bookAuthorToAdd,0); //add book to the ArrayList
+    		fb.FileWrite(allBooks); //add book to the file
+    		updateBookMenu(); //update the menu of books
+    		
+    		//show confirmation book was added
     		a.setAlertType(AlertType.CONFIRMATION);
     		a.setContentText("Added the book " + bookTitleToAdd + " by " + bookAuthorToAdd + " to your list");
     		a.show();
-    		clearData();
+    		
+    		clearData(); //reset the fields
     	}
     }
     
@@ -154,11 +162,8 @@ public class BookController implements Initializable{
      */
     public void chooseRandom() {
     	RandomGen r = new RandomGen();
-    	int randIndex = r.GenerateRandom(allBooks.size()) - 1;
+    	int randIndex = r.GenerateRandom(allBooks.size());
     	ProgressController.chosenBook = allBooks.get(randIndex); //uncomment when progresscontroll class is ready
-    	//ProgressController.isBook = true;
-		//ProgressController.isMovie = false;
-		//ProgressController.isShow = false;
     }
     
     /*
@@ -168,9 +173,13 @@ public class BookController implements Initializable{
      * Params: none Returns: void
      */
     public void updateBookMenu() {
-    	listAuthorsButton.getItems().clear();
+    	listAuthorsButton.getItems().clear(); //clear current menu
+    	
+    	//add each movie in the ArrayList to the menu
     	for(Book book : allBooks) {
     		MenuItem item = new MenuItem(book.author + ", " + book.title);
+    		
+    		//set an action event that makes each book menu item selectable
     		item.setOnAction(e -> {
     			chosen = null;
     			String bookInfo = item.getText();
@@ -178,15 +187,12 @@ public class BookController implements Initializable{
     			chosen = getBook(splitBookInfo[1], splitBookInfo[0]);
     			if(chosen != null) {
     				ProgressController.chosenBook = getBook(splitBookInfo[1], splitBookInfo[0]);
-    				//ProgressController.isBook = true;
-    				//ProgressController.isMovie = false;
-    				//ProgressController.isShow = false;
     			}			
     		});
     		listAuthorsButton.getItems().add(item);
     		menuItems.add(item);
     	}
-    	listAuthorsButton.show();    	
+    	listAuthorsButton.show();  //show the updated menu of books  	
     }
     
     /*

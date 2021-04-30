@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane fx:id="displayChoiceBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProgressController">
+<AnchorPane fx:id="displayChoiceBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProgressControllerShow">
    <children>
       <Button fx:id="inProgressButton" layoutX="31.0" layoutY="262.0" mnemonicParsing="false" onAction="#progressAction" prefHeight="45.0" prefWidth="70.0" />
       <Button fx:id="doneButton" layoutX="359.0" layoutY="285.0" mnemonicParsing="false" onAction="#deleteContent" prefHeight="45.0" prefWidth="55.0" />
-      <TextField fx:id="stillReading" layoutX="100.0" layoutY="230.0" prefHeight="25.0" prefWidth="246.0" promptText="What chapter/episode did you leave off on?" />
+      <TextField fx:id="stillWatchingShow" layoutX="100.0" layoutY="230.0" prefHeight="25.0" prefWidth="246.0" promptText="What chapter/episode did you leave off on?" />
       <TextArea fx:id="progressResult" layoutX="140.0" layoutY="80.0" prefHeight="129.0" prefWidth="327.0" text="Displays title and episode/chapter">
          <font>
             <Font size="20.0" />
@@ -24,7 +24,7 @@
             <Font name="HP Simplified" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="272.0" prefHeight="25.0" prefWidth="120.0" text="Update Reading Chapter" />
+      <Label layoutX="120.0" layoutY="272.0" prefHeight="25.0" prefWidth="120.0" text="Update Show Episode" />
       <Label layoutX="216.0" layoutY="341.0" text="Watch/Read something else!" />
       <Label layoutX="426.0" layoutY="299.0" text="Done! Finished!" />
    </children>

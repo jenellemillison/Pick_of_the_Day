@@ -24,7 +24,7 @@
             <Font name="HP Simplified" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="272.0" prefHeight="25.0" prefWidth="120.0" text="Still watching/reading!" />
+      <Label layoutX="120.0" layoutY="272.0" prefHeight="25.0" prefWidth="120.0" text="Update Reading Chapter" />
       <Label layoutX="216.0" layoutY="341.0" text="Watch/Read something else!" />
       <Label layoutX="426.0" layoutY="299.0" text="Done! Finished!" />
    </children>

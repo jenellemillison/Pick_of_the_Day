@@ -10,7 +10,7 @@
 <AnchorPane fx:id="movieSelectorBckg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ShowController">
    <children>
       <Button fx:id="randomWatchButton" layoutX="410.0" layoutY="256.0" mnemonicParsing="false" onAction="#progressrand" prefHeight="104.0" prefWidth="120.0" />
-      <MenuButton fx:id="listShowsButton" layoutX="47.0" layoutY="256.0" mnemonicParsing="false" onAction="#chooseShow" text="List of show or movie titles" textFill="WHITE">
+      <MenuButton fx:id="listShowsButton" layoutX="47.0" layoutY="256.0" mnemonicParsing="false" text="List of show or movie titles" textFill="WHITE">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -40,7 +40,8 @@
             <Font name="HP Simplified" size="24.0" />
          </font>
       </Label>
-      <RadioButton fx:id="Moviebutton" layoutX="65.0" layoutY="114.0" mnemonicParsing="false" text="Movie" />
-      <RadioButton fx:id="Showbutton" layoutX="65.0" layoutY="174.0" mnemonicParsing="false" text="Show" />
+      <RadioButton fx:id="Moviebutton" layoutX="65.0" layoutY="114.0" mnemonicParsing="false" onAction="#buttonmovie" text="Movie" />
+      <RadioButton fx:id="Showbutton" layoutX="65.0" layoutY="174.0" mnemonicParsing="false" onAction="#buttonshow" text="Show" />
+      <Button fx:id="homeButton" layoutX="518.0" layoutY="9.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="59.0" prefWidth="68.0" />
    </children>
 </AnchorPane>
