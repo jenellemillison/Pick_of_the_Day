@@ -35,9 +35,6 @@ import application.FileHandlerBook;
 public class BookController implements Initializable{
 	
 	//Buttons, Textfields, and Panes shown on the ShowScene that the user can interact with to make changes
-	@FXML
-    private MenuButton chooseAuthorsButton;
-
     @FXML
     private Button randomReadButton;
 
@@ -79,7 +76,7 @@ public class BookController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		//clear pre-existing data
     	allBooks.clear();
-		chooseAuthorsButton.getItems().clear();
+		listAuthorsButton.getItems().clear();
 		bookTitleTxt.setText("");
 		bookAuthorTxt.setText("");
 		
