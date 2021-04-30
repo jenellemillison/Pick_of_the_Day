@@ -1,9 +1,5 @@
-title,author,0
-some book,someone,400
-my life,me,4
+some book,someone,20
 great gatsby,f. scott fitzgerald,3
-testtitle,testauthor,5
-test,test person,0
 some book,someone,200
 some book,someone,300
-hfhf,ggggg,0
+test,person,0

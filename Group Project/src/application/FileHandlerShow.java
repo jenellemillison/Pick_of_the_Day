@@ -131,6 +131,7 @@ public class FileHandlerShow {
     	FileWriter fWrite = new FileWriter(outFile, false);
     	
     	//writes to the file in the format of showTitle,episode
+    	System.out.println("size of array: " + titleWrite.size());
     	for(int i = 0; i < titleWrite.size(); i++){
     	 	fWrite.write(titleWrite.get(i).title + "," + titleWrite.get(i).episode + "\n");
     	}
