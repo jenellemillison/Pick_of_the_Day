@@ -86,7 +86,7 @@ public class ProgressControllerShow implements Initializable{
 	   	}
 	    	
 	   	else if (isMovie == true ) {
-	   		 progressResult.setText(chosenShow.title);	
+	   		 progressResult.setText(chosenMovie.title);	
 	    	 stillWatchingShow.clear();
     	}
     }
@@ -163,7 +163,7 @@ public class ProgressControllerShow implements Initializable{
 		if(isShow) {
 			progressResult.setText(chosenShow.title + " "+ chosenShow.episode);
 		}
-		else {
+		else if (isMovie) {
 			progressResult.setText(chosenMovie.title); 
 		}
 	}

@@ -102,10 +102,14 @@ public class ShowController implements Initializable{
     	if(Moviebutton.isSelected()) {
     		rindex = rand.GenerateRandom(movies.size());
     		ProgressControllerShow.chosenMovie = movies.get(rindex);
+    		ProgressControllerShow.isMovie = true;
+    		ProgressControllerShow.isShow = false;
     	}
     	else if (Showbutton.isSelected()){
         	rindex = rand.GenerateRandom(showTitle.size());
         	ProgressControllerShow.chosenShow = showTitle.get(rindex);
+        	ProgressControllerShow.isMovie = true;
+    		ProgressControllerShow.isShow = false;
         }
     }
     
