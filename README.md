@@ -10,4 +10,8 @@ If for some reason the images in the app do not show, you may need to download t
 
 ## Versions or other requirements
 * Java 8 
+* Java IDE
 * SceneBuilder 2.0
+
+## Link to Video Presentation
+[View the video here](https://drive.google.com/file/d/1ZEqfNSFtg5zZYfOKlmQ5l_TEVub7hwS5/view?usp=sharing)
