@@ -1,4 +1,4 @@
-# Pick_of_the_Day
+# Pick of the Day
 by Couch Potatoes  
 Courtney Evins, Jenelle Millison, Maria Vanesa Rivera, David Torres
 
